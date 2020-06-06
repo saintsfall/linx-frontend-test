@@ -82,10 +82,13 @@
       width: 40%;
     }
   }
+
+  &--show {
+    display: block;
+  }
 }
 
 .modal-buy {
-  display: none;
 }
 
 .modal-remove {
@@ -96,6 +99,5 @@
 }
 
 .modal-message {
-  display: none;
   text-align: center;
 }

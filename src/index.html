@@ -41,59 +41,7 @@
       <div class="container">
         <div class="shelf">
           <h2 class="shelf__title">lista de produtos</h2>
-          <ul class="shelf__list">
-            <li class="shelf__item">
-              <div class="product-card">
-                <span class="product-card__name">Nome do produto</span>
-                <img
-                  src="https://via.placeholder.com/160x120"
-                  title="product image"
-                  alt="product image"
-                  class="product-card__img"
-                />
-                <p class="product-card__description">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste iusto velit sed, veniam ea hic esse
-                  amet ducimus aliquid eos temporibus repellat possimus tenetur laudantium dolores, minus at vitae rem.
-                </p>
-                <strong class="product-card__price">R$29,90</strong>
-                <button class="product-card__buy">Comprar</button>
-              </div>
-            </li>
-            <li class="shelf__item">
-              <div class="product-card">
-                <span class="product-card__name">Nome do produto</span>
-                <img
-                  src="https://via.placeholder.com/160x120"
-                  title="product image"
-                  alt="product image"
-                  class="product-card__img"
-                />
-                <p class="product-card__description">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste iusto velit sed, veniam ea hic esse
-                  amet ducimus aliquid eos temporibus repellat possimus tenetur laudantium dolores, minus at vitae rem.
-                </p>
-                <strong class="product-card__price">R$29,90</strong>
-                <button class="product-card__buy">Comprar</button>
-              </div>
-            </li>
-            <li class="shelf__item">
-              <div class="product-card">
-                <span class="product-card__name">Nome do produto</span>
-                <img
-                  src="https://via.placeholder.com/160x120"
-                  title="product image"
-                  alt="product image"
-                  class="product-card__img"
-                />
-                <p class="product-card__description">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste iusto velit sed, veniam ea hic esse
-                  amet ducimus aliquid eos temporibus repellat possimus tenetur laudantium dolores, minus at vitae rem.
-                </p>
-                <strong class="product-card__price">R$29,90</strong>
-                <button class="product-card__buy">Comprar</button>
-              </div>
-            </li>
-          </ul>
+          <ul class="shelf__list" data-dynamic-values="shelfList"></ul>
         </div>
       </div>
     </section>
@@ -102,17 +50,9 @@
       <div class="modal__wrapper">
         <div class="modal__header">
           <h2 class="modal__title">mais detalhes</h2>
-          <button class="modal__close">X</button>
+          <button class="modal__close" data-action="close">X</button>
         </div>
-        <div class="modal__content">
-          <h3>Nome do produto</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, quasi! Velit nisi minima cum eius maxime.
-            Inventore unde dolor architecto dolorum quibusdam aliquam porro laudantium illum accusantium laboriosam,
-            facilis non!
-          </p>
-          <strong>R$29,90</strong>
-        </div>
+        <div class="modal__content"></div>
         <div class="modal__footer">
           <form action="">
             <input type="text" name="quantity" placeholder="Informe a Quantidade" id="quantity" />
@@ -126,7 +66,7 @@
       <div class="modal__wrapper">
         <div class="modal__header">
           <h2 class="modal__title">sucesso!</h2>
-          <button class="modal__close">X</button>
+          <button class="modal__close" data-action="close">X</button>
         </div>
         <div class="modal__content">
           <p>O produto foi adicionado ao carrinho com sucesso!</p>
@@ -139,7 +79,7 @@
       <div class="modal__wrapper">
         <div class="modal__header">
           <h2 class="modal__title">remover este produto?</h2>
-          <button class="modal__close">X</button>
+          <button class="modal__close" data-action="close">X</button>
         </div>
         <div class="modal__content">
           <p>Tem certeza de que deseja remover o produto do seu carrinho de compras?</p>
