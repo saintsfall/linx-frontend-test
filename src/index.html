@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./script.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container container">
+        <h1 class="brand">Logo</h1>
+        <div class="basket">
+          <div class="basket__header">
+            <span class="basket__title">Meu carrinho:</span>
+            <strong>vazio</strong>
+          </div>
+          <div class="basket__content">
+            <ul class="basket__list">
+              <li class="basket__item basket-product">
+                <span class="basket-product__name">Produto 1</span>
+                <span class="basket-product__quantity">(1 item)</span>
+                <span class="basket-product__value">R$29,90</span>
+                <button class="basket-product__remove" aria-label="remove">X</button>
+              </li>
+              <li class="basket__item basket-product">
+                <span class="basket-product__name">Produto 2</span>
+                <span class="basket-product__quantity">(2 itens)</span>
+                <span class="basket-product__value">R$89,90</span>
+                <button class="basket-product__remove" aria-label="remove">X</button>
+              </li>
+            </ul>
+            <div class="basket__footer"><span>total: </span><strong class="basket__total">R$100,00</strong></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <div class="container">
+        <div class="shelf">
+          <h2 class="shelf__title">lista de produtos</h2>
+          <ul class="shelf__list">
+            <li class="shelf__item">
+              <div class="product-card">
+                <span class="product-card__name">Nome do produto</span>
+                <img
+                  src="https://via.placeholder.com/160x120"
+                  title="product image"
+                  alt="product image"
+                  class="product-card__img"
+                />
+                <p class="product-card__description">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste iusto velit sed, veniam ea hic esse
+                  amet ducimus aliquid eos temporibus repellat possimus tenetur laudantium dolores, minus at vitae rem.
+                </p>
+                <strong class="product-card__price">R$29,90</strong>
+                <button class="product-card__buy">Comprar</button>
+              </div>
+            </li>
+            <li class="shelf__item">
+              <div class="product-card">
+                <span class="product-card__name">Nome do produto</span>
+                <img
+                  src="https://via.placeholder.com/160x120"
+                  title="product image"
+                  alt="product image"
+                  class="product-card__img"
+                />
+                <p class="product-card__description">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste iusto velit sed, veniam ea hic esse
+                  amet ducimus aliquid eos temporibus repellat possimus tenetur laudantium dolores, minus at vitae rem.
+                </p>
+                <strong class="product-card__price">R$29,90</strong>
+                <button class="product-card__buy">Comprar</button>
+              </div>
+            </li>
+            <li class="shelf__item">
+              <div class="product-card">
+                <span class="product-card__name">Nome do produto</span>
+                <img
+                  src="https://via.placeholder.com/160x120"
+                  title="product image"
+                  alt="product image"
+                  class="product-card__img"
+                />
+                <p class="product-card__description">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste iusto velit sed, veniam ea hic esse
+                  amet ducimus aliquid eos temporibus repellat possimus tenetur laudantium dolores, minus at vitae rem.
+                </p>
+                <strong class="product-card__price">R$29,90</strong>
+                <button class="product-card__buy">Comprar</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="modal modal-buy">
+      <div class="modal__wrapper">
+        <div class="modal__header">
+          <h2 class="modal__title">mais detalhes</h2>
+          <button class="modal__close">X</button>
+        </div>
+        <div class="modal__content">
+          <h3>Nome do produto</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, quasi! Velit nisi minima cum eius maxime.
+            Inventore unde dolor architecto dolorum quibusdam aliquam porro laudantium illum accusantium laboriosam,
+            facilis non!
+          </p>
+          <strong>R$29,90</strong>
+        </div>
+        <div class="modal__footer">
+          <form action="">
+            <input type="text" name="quantity" placeholder="Informe a Quantidade" id="quantity" />
+            <button type="submit">COMPRAR</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal modal-message">
+      <div class="modal__wrapper">
+        <div class="modal__header">
+          <h2 class="modal__title">sucesso!</h2>
+          <button class="modal__close">X</button>
+        </div>
+        <div class="modal__content">
+          <p>O produto foi adicionado ao carrinho com sucesso!</p>
+        </div>
+        <!-- <div class="modal__footer"></div> -->
+      </div>
+    </div>
+
+    <div class="modal modal-remove">
+      <div class="modal__wrapper">
+        <div class="modal__header">
+          <h2 class="modal__title">remover este produto?</h2>
+          <button class="modal__close">X</button>
+        </div>
+        <div class="modal__content">
+          <p>Tem certeza de que deseja remover o produto do seu carrinho de compras?</p>
+          <div class="modal__buttons"><button>SIM</button><button>NAO</button></div>
+        </div>
+        <!-- <div class="modal__footer"></div> -->
+      </div>
+    </div>
+  </body>
+</html>
