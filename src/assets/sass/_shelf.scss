@@ -1,0 +1,30 @@
+.shelf {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background-color: #f9f9f9;
+
+  &__title {
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-top: 2rem;
+    margin-bottom: 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 33.33%;
+    padding: 0 1rem;
+    margin: 2rem 0 0 0;
+    list-style: none;
+  }
+}
