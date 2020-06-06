@@ -1,0 +1,33 @@
+.basket-product {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  border-top: 1px solid #fff;
+
+  font-size: 12px;
+  font-weight: 100;
+
+  &:last-of-type {
+    border-bottom: 1px solid #fff;
+  }
+
+  &__name {
+    // padding-left: 1rem;
+  }
+
+  &__quantity {
+    padding-left: 1rem;
+  }
+
+  &__value {
+    padding-left: 1rem;
+  }
+
+  &__remove {
+    margin-left: auto;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: inherit;
+    background-color: transparent;
+  }
+}
