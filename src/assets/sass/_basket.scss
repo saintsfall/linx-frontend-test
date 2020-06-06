@@ -1,0 +1,45 @@
+.basket {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 270px;
+  height: 60px;
+  padding: 1rem;
+  background-color: #666;
+  color: #fff;
+
+  font-size: 12px;
+  font-weight: 100;
+
+  &__title {
+    color: inherit;
+  }
+  &__header {
+  }
+  &__content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem 1rem 1rem;
+
+    background-color: inherit;
+  }
+
+  &__footer {
+    padding: 1rem 0 0 0;
+    text-align: right;
+    text-transform: uppercase;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    list-style: none;
+  }
+}
