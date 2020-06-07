@@ -169,6 +169,10 @@ const loadEvents = () => {
       closeModal();
     }
   });
+
+  $(".basket").on("click", function () {
+    $(".basket__content").toggleClass("basket__content--show");
+  });
 };
 
 const renderProducts = (products) => {
