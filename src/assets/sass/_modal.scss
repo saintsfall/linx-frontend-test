@@ -4,10 +4,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-
-  display: none;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
 
   background-color: rgba(0, 0, 0, 0.4);
+
+  transition: opacity 1s ease, visibility 1s ease;
 
   &__header {
     display: flex;
@@ -84,20 +87,7 @@
   }
 
   &--show {
-    display: block;
+    visibility: visible;
+    opacity: 1;
   }
 }
-
-// .modal-buy {
-// }
-
-// .modal-remove {
-//   p {
-//     padding: 0 2rem;
-//     text-align: center;
-//   }
-// }
-
-// .modal-message {
-//   text-align: center;
-// }
