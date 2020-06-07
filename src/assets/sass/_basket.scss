@@ -7,6 +7,7 @@
   padding: 1rem;
   background-color: #666;
   color: #fff;
+  cursor: pointer;
 
   font-size: 12px;
   font-weight: 100;
@@ -23,13 +24,21 @@
     right: 0;
     display: flex;
     flex-direction: column;
-    padding: 0 1rem 1rem 1rem;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 1rem;
 
     background-color: inherit;
+
+    transition: max-height 350ms;
+
+    &--show {
+      max-height: 500px;
+    }
   }
 
   &__footer {
-    padding: 1rem 0 0 0;
+    padding: 1rem 1rem 1rem 0;
     text-align: right;
     text-transform: uppercase;
   }
