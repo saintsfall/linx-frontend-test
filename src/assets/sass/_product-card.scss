@@ -10,6 +10,10 @@
     font-size: 0.8rem;
     font-weight: 500;
     text-transform: uppercase;
+
+    @media screen and(max-width: 414px) {
+      font-size: 1.1rem;
+    }
   }
   &__img {
     display: block;
@@ -23,11 +27,19 @@
     margin: 2rem 0 0 0;
     font-size: 11px;
     font-weight: 100;
+
+    @media screen and(max-width: 414px) {
+      font-size: 1rem;
+    }
   }
   &__price {
     display: block;
     margin: 2rem 0;
     font-size: 12px;
+
+    @media screen and(max-width: 414px) {
+      font-size: 1.3rem;
+    }
   }
   &__buy {
     width: 100%;

@@ -21,10 +21,16 @@ button {
   text-transform: uppercase;
   font-size: 14px;
   color: #fff;
-  border: 0;
+  border: 1px solid #aaa;
   border-radius: 0;
   background-color: #aaa;
   cursor: pointer;
+  transition-duration: 350ms;
+
+  &:hover {
+    background-color: #fff;
+    color: #aaa;
+  }
 }
 
 .container {

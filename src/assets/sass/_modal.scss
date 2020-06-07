@@ -37,6 +37,7 @@
   &__footer {
     padding: 0 2rem 2rem 2rem;
     form {
+      position: relative;
       display: flex;
       justify-content: space-between;
       padding: 2rem 0;
@@ -44,14 +45,59 @@
     }
 
     input {
+      position: relative;
       height: 45px;
       padding: 0 1rem;
       margin-left: auto;
       margin-right: 1rem;
+
+      @media screen and(max-width: 414px) {
+        padding-right: 0;
+      }
+    }
+
+    .error {
+      visibility: hidden;
+      position: absolute;
+      bottom: -5px;
+      width: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      height: 30px;
+      font-size: 11px;
+      background-color: #d69797;
+
+      opacity: 0.7;
+
+      &.visible {
+        visibility: visible;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 90%;
+        bottom: 60%;
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-left: 5px solid #d69797;
+        border-top: 5px solid #d69797;
+
+        transform: rotate(45deg);
+
+        @media screen and(max-width: 414px) {
+          left: 5%;
+        }
+      }
     }
 
     button {
       width: 30%;
+      @media screen and(max-width: 414px) {
+        width: 40%;
+      }
     }
   }
 
@@ -63,8 +109,14 @@
   &__close {
     font-weight: bold;
     color: #000;
+    border: 0;
     background-color: transparent;
     cursor: pointer;
+
+    &:hover {
+      opacity: 0.9;
+      background-color: transparent;
+    }
   }
 
   &__wrapper {
@@ -75,6 +127,10 @@
     background-color: #fff;
 
     transform: translate(-50%, -50%);
+
+    @media screen and(max-width: 414px) {
+      width: 95%;
+    }
   }
 
   &__buttons {

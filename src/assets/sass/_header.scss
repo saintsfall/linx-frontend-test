@@ -8,10 +8,33 @@
     height: 115px;
     padding: 0 2rem;
     background-color: #ddd;
+
+    transition: all 350ms;
+
+    @media screen and(max-width: 414px) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      &.shrink {
+        height: 70px;
+      }
+    }
   }
 
   .brand {
     font-size: 16px;
     text-transform: uppercase;
+
+    transition: all 350ms;
+
+    @media screen and(max-width: 414px) {
+      font-size: 24px;
+
+      &.shrink {
+        font-size: 18px;
+      }
+    }
   }
 }
