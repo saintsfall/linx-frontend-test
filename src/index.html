@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
     <script src="./script.js" defer></script>
+    <script src="./jquery.js"></script>
     <title>Document</title>
   </head>
   <body>
@@ -14,24 +15,11 @@
         <div class="basket">
           <div class="basket__header">
             <span class="basket__title">Meu carrinho:</span>
-            <strong>vazio</strong>
+            <strong class="basket__status"></strong>
           </div>
           <div class="basket__content">
-            <ul class="basket__list">
-              <li class="basket__item basket-product">
-                <span class="basket-product__name">Produto 1</span>
-                <span class="basket-product__quantity">(1 item)</span>
-                <span class="basket-product__value">R$29,90</span>
-                <button class="basket-product__remove" aria-label="remove">X</button>
-              </li>
-              <li class="basket__item basket-product">
-                <span class="basket-product__name">Produto 2</span>
-                <span class="basket-product__quantity">(2 itens)</span>
-                <span class="basket-product__value">R$89,90</span>
-                <button class="basket-product__remove" aria-label="remove">X</button>
-              </li>
-            </ul>
-            <div class="basket__footer"><span>total: </span><strong class="basket__total">R$100,00</strong></div>
+            <ul class="basket__list"></ul>
+            <div class="basket__footer"><span>total: </span><strong class="basket__total"></strong></div>
           </div>
         </div>
       </div>
@@ -46,7 +34,7 @@
       </div>
     </section>
 
-    <div class="modal modal-buy">
+    <div class="modal" data-modal-id="modal-buy">
       <div class="modal__wrapper">
         <div class="modal__header">
           <h2 class="modal__title">mais detalhes</h2>
@@ -62,7 +50,7 @@
       </div>
     </div>
 
-    <div class="modal modal-message">
+    <div class="modal" data-modal-id="modal-message">
       <div class="modal__wrapper">
         <div class="modal__header">
           <h2 class="modal__title">sucesso!</h2>
@@ -75,7 +63,7 @@
       </div>
     </div>
 
-    <div class="modal modal-remove">
+    <div class="modal" data-modal-id="modal-remove">
       <div class="modal__wrapper">
         <div class="modal__header">
           <h2 class="modal__title">remover este produto?</h2>
@@ -83,7 +71,9 @@
         </div>
         <div class="modal__content">
           <p>Tem certeza de que deseja remover o produto do seu carrinho de compras?</p>
-          <div class="modal__buttons"><button>SIM</button><button>NAO</button></div>
+          <div class="modal__buttons">
+            <button data-action="confirm">SIM</button><button data-action="cancel">NAO</button>
+          </div>
         </div>
         <!-- <div class="modal__footer"></div> -->
       </div>
