@@ -1,6 +1,11 @@
+// GLOBAL VARIABLES
 const API_URL =
   "https://gist.githubusercontent.com/saintsfall/227de9692077c815e207a3ffbd7d01e8/raw/4a8ddba9938502fb43b788ecced3affa107000bb/products.json";
 let data = {};
+////////////////////////////////////////////////////////////////////////////////////
+
+// BASKET
+////////////////////////////////////////////////////////////////////////////////////
 let basket = {
   $el: $(".basket"),
   productList: [],
@@ -44,17 +49,23 @@ let basket = {
     });
 
     if (hasProduct && hasProduct.quantity + parseInt(quantity) > product.stock) {
-      alert("whatever");
+      // alert("Quantidade não disponivel no estoque");
+      $(".error").addClass("visible");
+      $(".error").text("Quantidade não disponivel em estoque");
       return;
     }
 
     if (hasProduct) {
       hasProduct.quantity += parseInt(quantity);
+      $("span.error").removeClass("visible");
     } else {
       this.productList.push({
         product: product,
         quantity: parseInt(quantity),
       });
+      closeModal();
+      openModalById("message");
+      $("span.error").removeClass("visible");
     }
 
     this.renderProductList();
@@ -67,10 +78,10 @@ let basket = {
     });
     this.renderProductList();
     this.updateTotal();
-    console.log(this.total);
     this.updateStatus();
   },
 };
+////////////////////////////////////////////////////////////////////////////////////
 
 // TEMPLATES
 ////////////////////////////////////////////////////////////////////////////////////
@@ -102,6 +113,7 @@ const buyModalContentTemplate = ({ name, description, price }) => `
 const buyModalFooterTemplate = ({ id }) => `
   <form action="">
     <input type="text" name="quantity" placeholder="Informe a Quantidade" id="quantity" />
+    <span class="error"></span>
     <button type="submit" data-product-id="${id}">COMPRAR</button>
   </form>
 `;
@@ -117,6 +129,7 @@ const adjustPrice = (price) => {
   return price.toFixed(2).replace(".", ",");
 };
 const loadEvents = () => {
+  // ADD PRODUCT
   $("[data-dynamic-values='shelfList']").on("click", '[data-action="buy"]', function () {
     const productId = $(this).attr("data-product-id");
     const product = data.products.find(function (element) {
@@ -128,10 +141,7 @@ const loadEvents = () => {
     });
   });
 
-  $(".modal").on("click", '[data-action="close"]', function () {
-    closeModal();
-  });
-
+  // ADD PRODUCT MODAL
   $('.modal[data-modal-id="modal-buy"]').on("submit", "form", function (e) {
     e.preventDefault();
     const quantity = $(this).find("#quantity").val();
@@ -141,26 +151,24 @@ const loadEvents = () => {
     });
 
     if (!quantity || quantity.trim() === "") {
-      alert("Campo em branco");
+      $("span.error").addClass("visible");
+      $("span.error").text("Por favor informe uma quantidade");
       return;
     }
 
     if (quantity > product.stock) {
-      alert("Quantidade não disponivel em estoque");
+      $("span.error").addClass("visible");
+      $("span.error").text("Quantidade não disponivel em estoque");
+
       return;
     }
 
     basket.addProduct(product, quantity);
-    closeModal();
-    openModalById("message");
+    $("span.error").removeClass("visible");
+    $("span.error").text("");
   });
 
-  $(".basket").on("click", ".basket-product__remove", function () {
-    const productId = $(this).attr("data-product-id");
-    $(".modal__buttons").html(modalButtonsTemplate(productId));
-    openModalById("remove", {});
-  });
-
+  // REMOVE PRODUCT HANDLER
   $('.modal[data-modal-id="modal-remove"]').on("click", "[data-action]", function () {
     if ($(this).attr("data-action") === "confirm") {
       basket.removeProduct($(this).attr("data-product-id"));
@@ -170,11 +178,39 @@ const loadEvents = () => {
     }
   });
 
+  //REMOVE PRODUCT MODAL
+  $(".basket").on("click", ".basket-product__remove", function () {
+    const productId = $(this).attr("data-product-id");
+    $(".modal__buttons").html(modalButtonsTemplate(productId));
+    openModalById("remove", {});
+  });
+
+  // MODAL CLOSE
+  $(".modal").on("click", '[data-action="close"]', function () {
+    closeModal();
+  });
+
+  // BASKET CONTENT VISIBLE/HIDDEN
   $(".basket").on("click", function () {
+    $(".basket__status").toggleClass("basket__status--open");
     $(".basket__content").toggleClass("basket__content--show");
   });
-};
 
+  // HEADER
+  $(window).on("scroll", function () {
+    if (window.pageYOffset > 115) {
+      $(".header__container").addClass("shrink");
+      $(".brand").addClass("shrink");
+    } else {
+      $(".header__container").removeClass("shrink");
+      $(".brand").removeClass("shrink");
+    }
+  });
+};
+////////////////////////////////////////////////////////////////////////////////////
+
+//RENDER
+////////////////////////////////////////////////////////////////////////////////////
 const renderProducts = (products) => {
   let productsHTML = "";
   products.forEach((product) => {
@@ -182,7 +218,10 @@ const renderProducts = (products) => {
   });
   $("[data-dynamic-values='shelfList']").html(productsHTML);
 };
+////////////////////////////////////////////////////////////////////////////////////
 
+// MODAL
+////////////////////////////////////////////////////////////////////////////////////
 const openModalById = (id, { content, footer } = {}) => {
   const modal = $(`[data-modal-id=modal-${id}]`);
   if (content) {
@@ -199,6 +238,8 @@ const closeModal = () => {
 };
 ////////////////////////////////////////////////////////////////////////////////////
 
+// INIT
+////////////////////////////////////////////////////////////////////////////////////
 $(document).ready(function () {
   basket.updateStatus();
   $.ajax({
@@ -210,3 +251,4 @@ $(document).ready(function () {
     renderProducts(data.products);
   });
 });
+////////////////////////////////////////////////////////////////////////////////////
