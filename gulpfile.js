@@ -20,7 +20,7 @@ function htmlMin() {
 // Compile SASS/SCSS to CSS
 function compileSass() {
   return gulp
-    .src("src/assets/**/*.scss")
+    .src("src/assets/sass/style.scss")
     .pipe(
       sass({
         outputStyle: "compressed",
@@ -28,6 +28,12 @@ function compileSass() {
     )
     .pipe(gulp.dest("dist/css/"))
     .pipe(browserSync.stream());
+}
+
+// Compile JS
+async function compileJs(done) {
+  gulp.src("src/assets/scripts/*.js").pipe(gulp.dest("dist/")).pipe(browserSync.stream());
+  done();
 }
 
 // WATCH
@@ -42,9 +48,11 @@ function watch() {
   // Alternative for not minified html
   gulp.watch("./src/index.html").on("change", browserSync.reload);
   gulp.watch("./src/assets/**/*.scss", compileSass);
+  gulp.watch("./src/assets/scripts/**/*.js", compileJs);
 }
 
 // Exporting tasks
 exports.htmlMin = htmlMin;
 exports.compileSass = compileSass;
+exports.compileJs = compileJs;
 exports.watch = watch;
